@@ -1,15 +1,12 @@
 <template>
   <div class="page-wrapper">
-    <h1 class="login-page-title">Login page</h1>
-
+    <h1 class="login-page-title">Login</h1>
     <!-- Loader -->
     <div v-show="user === undefined" data-test="loader">Authenticating...</div>
-
     <!-- Offline instruction -->
     <div v-show="!networkOnLine" data-test="offline-instruction">
       Please check your connection, login feature is not available offline.
     </div>
-
     <p v-if="loginError">{{ loginError }}</p>
     <!-- Auth UI -->
     <div
@@ -18,7 +15,7 @@
       class="login-btn"
       @click="login"
     >
-      Login with google
+      Login with Google
     </div>
   </div>
 </template>
@@ -39,7 +36,7 @@ export default {
       meta: [
         {
           name: 'description',
-          content: `Sign in or sign up to ${this.appTitle}`,
+          content: `Login | Register ${this.appTitle}`,
           id: 'desc'
         }
       ]
@@ -68,15 +65,13 @@ export default {
       this.loginError = null
       const provider = new firebase.auth.GoogleAuthProvider()
       this.setUser(undefined)
-
-      try {
         // Firebase signin with popup is faster than redirect
-        // but we can't use it on mobile because it's not well supported
-        // when app is running as standalone on ios & android
+        // although performance is poor natively on mobile devices
         // eslint-disable-next-line no-unused-expressions
+      try {
         isDekstop()
-          ? await firebase.auth().signInWithPopup(provider)
-          : await firebase.auth().signInWithRedirect(provider)
+        ? await firebase.auth().signInWithPopup(provider)
+        : await firebase.auth().signInWithRedirect(provider)
       } catch (err) {
         this.loginError = err
         this.setUser(null)

@@ -1,0 +1,6 @@
+    "markdownlint.ignore": [
+        "ignore.md",
+        "directory/ignore.md",
+        "**/ignore.md",
+        "**/*.md"
+    ]
