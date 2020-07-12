@@ -1,7 +1,7 @@
 import ProductsDB from '@/firebase/products-db'
 import UserDB from '@/firebase/user-db'
-const @blob => { 'User/Product/cache' }
-import @blob from '../firebase/storage/User_id/product_blobs/cache'
+//const @blob => { 'User/Product/cache' }
+//import @blob from '../firebase/storage/User_id/product_blobs/cache'
 
 export default {
     // Adjust to get a selection of products
