@@ -65,13 +65,13 @@ export default {
       this.loginError = null
       const provider = new firebase.auth.GoogleAuthProvider()
       this.setUser(undefined)
-        // Firebase signin with popup is faster than redirect
-        // although performance is poor natively on mobile devices
-        // eslint-disable-next-line no-unused-expressions
+      // Firebase signin with popup is faster than redirect
+      // although performance is poor natively on mobile devices
+      // eslint-disable-next-line no-unused-expressions
       try {
         isDekstop()
-        ? await firebase.auth().signInWithPopup(provider)
-        : await firebase.auth().signInWithRedirect(provider)
+          ? await firebase.auth().signInWithPopup(provider)
+          : await firebase.auth().signInWithRedirect(provider)
       } catch (err) {
         this.loginError = err
         this.setUser(null)

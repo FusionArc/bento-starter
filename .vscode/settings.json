@@ -12,5 +12,11 @@
 
   "[scss]": {
     "editor.formatOnSave": true
-  }
+  },
+  "prettier.vueIndentScriptAndStyle": true,
+  "prettier.semi": false,
+  "prettier.quoteProps": "preserve",
+  "prettier.proseWrap": "never",
+  "prettier.printWidth": -1,
+  "prettier.endOfLine": "auto"
 }
